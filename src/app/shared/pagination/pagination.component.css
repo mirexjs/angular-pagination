@@ -15,5 +15,6 @@
 .ap-pagination__button--active {
   background: #666;
   color: #fff;
+  cursor: pointer;
 }
 

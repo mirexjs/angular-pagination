@@ -1,6 +1,5 @@
 <div class="ap-pagination">
-  <a href=""
-     class="ap-pagination__button ap-pagination__first-page"
+  <a class="ap-pagination__button ap-pagination__first-page"
      *ngIf="isFirstPageVisible"
      (click)="changeCurrentPage($event, firstPage)"
   >{{ firstPageText }}</a>
@@ -9,21 +8,18 @@
         *ngIf="isFirstPageVisible && firstAndLastPageType === 'number'"
   >...</span>
 
-  <a href=""
-     class="ap-pagination__button ap-pagination__prev-page"
+  <a class="ap-pagination__button ap-pagination__prev-page"
      *ngIf="isPrevPageVisible"
      (click)="changeCurrentPage($event, prevPage)"
   >{{ prevPageText }}</a>
 
-  <a href=""
-     class="ap-pagination__button ap-pagination__button--number"
+  <a class="ap-pagination__button ap-pagination__button--number"
      *ngFor="let page of pages"
      [ngClass]="{ 'ap-pagination__button--active': page === currentPage }"
      (click)="changeCurrentPage($event, page)"
   >{{ page }}</a>
 
-  <a href=""
-     class="ap-pagination__button ap-pagination__next-page"
+  <a class="ap-pagination__button ap-pagination__next-page"
      *ngIf="isNextPageVisible"
      (click)="changeCurrentPage($event, nextPage)"
   >{{ nextPageText }}</a>
@@ -32,8 +28,7 @@
         *ngIf="isLastPageVisible && firstAndLastPageType === 'number'"
   >...</span>
 
-  <a href=""
-     class="ap-pagination__button ap-pagination__last-page"
+  <a class="ap-pagination__button ap-pagination__last-page"
      *ngIf="isLastPageVisible"
      (click)="changeCurrentPage($event, lastPage)"
   >{{ lastPageText }}</a>
