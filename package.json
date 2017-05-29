@@ -1,5 +1,5 @@
 {
-  "name": "angular-pagination",
+  "name": "@mirexjs/angular-pagination",
   "version": "0.1.0-beta.1",
   "license": "MIT",
   "description": "Component to display pagination numbers",
