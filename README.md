@@ -32,7 +32,7 @@
 
 ### Logic options
 
-`overrideCurrentPage`: (`boolean`)
+`overrideLocalCurrentPage`: (`boolean`)
 
 ---
 

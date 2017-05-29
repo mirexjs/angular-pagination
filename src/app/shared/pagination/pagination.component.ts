@@ -32,7 +32,7 @@ export class PaginationComponent {
 
   @Input() public dynamicVisibilityNextPage = true;
 
-  @Input() public overrideCurrentPage = true;
+  @Input() public overrideLocalCurrentPage = true;
 
   @Output() public onChangeCurrentPage: EventEmitter<IOnChangeCurrentPage> = new EventEmitter();
 
@@ -115,7 +115,7 @@ export class PaginationComponent {
       currentPage: page,
     };
 
-    if (this.overrideCurrentPage) {
+    if (this.overrideLocalCurrentPage) {
       this.currentPage = page;
     }
 
