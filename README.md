@@ -1,4 +1,40 @@
-# AngularPagination
+# AngularPagination (0.1.0-beta.1)
+
+## Options
+
+### Basic options
+
+`totalPages`: (`number`)
+
+`currentPage`: (`number`)
+
+`limitPages`: (`number`)
+
+### Display options
+
+`firstAndLastPageType`: (`'icon'` | `'number'`)
+
+`showFirstPage`: (`boolean`)
+
+`showLastPage`: (`boolean`)
+
+`showNextPage`: (`boolean`)
+
+`showPrevPage`: (`boolean`)
+
+`dynamicVisibilityFirstPage`: (`boolean`)
+
+`dynamicVisibilityLastPage`: (`boolean`)
+
+`dynamicVisibilityPreviousPage`: (`boolean`)
+
+`dynamicVisibilityNextPage`: (`boolean`)
+
+### Logic options
+
+`overrideCurrentPage`: (`boolean`)
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
