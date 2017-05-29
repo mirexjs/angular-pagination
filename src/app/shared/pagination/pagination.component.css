@@ -1,0 +1,19 @@
+.ap-pagination__button {
+  min-width: 30px;
+  margin: 0 3px;
+  padding: 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+  font-family: Arial;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+}
+
+.ap-pagination__button--active {
+  background: #666;
+  color: #fff;
+}
+

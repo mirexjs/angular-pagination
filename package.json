@@ -2,6 +2,14 @@
   "name": "angular-pagination",
   "version": "0.0.0",
   "license": "MIT",
+  "description": "Component to display pagination numbers",
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "author": "Mirosław Bogacz <mirexjs@hotmail.com> (https://github.com/mirexjs)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirexjs/angular-pagination.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,7 +18,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
