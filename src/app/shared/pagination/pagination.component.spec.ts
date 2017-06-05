@@ -251,4 +251,15 @@ describe('PaginationComponent', () => {
     });
   });
 
+  describe('when component has totalPages 100 value and limitPages is 5', () => {
+    it('should add class for activate button', () => {
+      testHostComponent.totalPages = 100;
+      testHostComponent.currentPage = 1;
+      testHostComponent.limitPages = 5;
+      fixture.detectChanges();
+
+      expect(getNumberButtons(fixture).length).toEqual(5);
+    });
+  });
+
 });
