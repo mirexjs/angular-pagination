@@ -45,6 +45,11 @@ function getElementsBySelector(selector: string) {
     fixture.debugElement.queryAll(By.css(selector));
 }
 
+function getElementBySelector(selector: string) {
+  return (fixture: ComponentFixture<TestHostComponent>) =>
+    fixture.debugElement.query(By.css(selector));
+}
+
 describe('PaginationComponent', () => {
   let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
@@ -52,6 +57,7 @@ describe('PaginationComponent', () => {
   let mockChangeCurrentPage;
 
   const getNumberButtons = getElementsBySelector('.ap-pagination__button--number');
+  const getCurrentNumberButton = getElementBySelector('.ap-pagination__button--active');
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -232,6 +238,16 @@ describe('PaginationComponent', () => {
       fixture.detectChanges();
 
       expect(getNumberButtons(fixture).length).toEqual(100);
+    });
+  });
+
+  describe('when component has totalPages 100 value and currentPage is 5', () => {
+    it('should add class for activate button', () => {
+      testHostComponent.totalPages = 100;
+      testHostComponent.currentPage = 5;
+      fixture.detectChanges();
+
+      expect(getCurrentNumberButton(fixture).nativeElement.text).toContain(5);
     });
   });
 
