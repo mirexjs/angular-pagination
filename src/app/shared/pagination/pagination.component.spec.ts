@@ -40,11 +40,18 @@ class TestHostComponent {
   public changeCurrentPage(page: IOnChangeCurrentPage) {}
 }
 
+function getElementsBySelector(selector: string) {
+  return (fixture: ComponentFixture<TestHostComponent>) =>
+    fixture.debugElement.queryAll(By.css(selector));
+}
+
 describe('PaginationComponent', () => {
   let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   let component: PaginationComponent;
   let mockChangeCurrentPage;
+
+  const getNumberButtons = getElementsBySelector('.ap-pagination__button--number');
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -216,6 +223,15 @@ describe('PaginationComponent', () => {
 
       component.changeCurrentPage(new Event('click'), 3);
       expect(mockChangeCurrentPage).toHaveBeenCalledWith(<IOnChangeCurrentPage>{ currentPage: 3, previousPage: 2});
+    });
+  });
+
+  describe('when component has totalPages 100 value', () => {
+    it('should generate 100 number buttons', () => {
+      testHostComponent.totalPages = 100;
+      fixture.detectChanges();
+
+      expect(getNumberButtons(fixture).length).toEqual(100);
     });
   });
 
