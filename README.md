@@ -1,4 +1,4 @@
-# AngularPagination (0.1.0-beta.2)
+# AngularPagination (0.1.0-beta.3)
 
 ## Options
 
