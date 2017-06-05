@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationComponent } from './pagination.component';
 import {Component} from "@angular/core";
 import {By} from "@angular/platform-browser";
+import {IOnChangeCurrentPage} from "../models/on-change-current-page.interface";
 
 @Component({
   template: `<ap-pagination 
@@ -19,6 +20,7 @@ import {By} from "@angular/platform-browser";
     [dynamicVisibilityPreviousPage]='dynamicVisibilityPreviousPage'
     [dynamicVisibilityNextPage]='dynamicVisibilityNextPage'
     [overrideLocalCurrentPage]='overrideLocalCurrentPage'
+    (onChangeCurrentPage)='changeCurrentPage($event)'
   ></ap-pagination>`
 })
 class TestHostComponent {
@@ -35,12 +37,14 @@ class TestHostComponent {
   dynamicVisibilityPreviousPage: boolean;
   dynamicVisibilityNextPage: boolean;
   overrideLocalCurrentPage: boolean;
+  public changeCurrentPage(page: IOnChangeCurrentPage) {}
 }
 
 describe('PaginationComponent', () => {
   let testHostComponent: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   let component: PaginationComponent;
+  let mockChangeCurrentPage;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -53,6 +57,7 @@ describe('PaginationComponent', () => {
     fixture = TestBed.createComponent(TestHostComponent);
     testHostComponent = fixture.componentInstance;
     component = fixture.debugElement.query(By.css('ap-pagination')).componentInstance;
+    mockChangeCurrentPage = spyOn(testHostComponent, 'changeCurrentPage');
     fixture.detectChanges();
   });
 
@@ -201,6 +206,17 @@ describe('PaginationComponent', () => {
       expect(component.overrideLocalCurrentPage).toEqual(testHostComponent.overrideLocalCurrentPage);
     });
 
+  });
+
+  describe('when component changeCurrentPage method has been called', () => {
+    it('should be call onChangeCurrentPage output', () => {
+      testHostComponent.totalPages = 5;
+      testHostComponent.currentPage = 2;
+      fixture.detectChanges();
+
+      component.changeCurrentPage(new Event('click'), 3);
+      expect(mockChangeCurrentPage).toHaveBeenCalledWith(<IOnChangeCurrentPage>{ currentPage: 3, previousPage: 2});
+    });
   });
 
 });
