@@ -58,6 +58,8 @@ describe('PaginationComponent', () => {
 
   const getNumberButtons = getElementsBySelector('.ap-pagination__button--number');
   const getCurrentNumberButton = getElementBySelector('.ap-pagination__button--active');
+  const getPrevPageButton = getElementBySelector('.ap-pagination__prev-page');
+  const getNextPageButton = getElementBySelector('.ap-pagination__next-page');
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -259,6 +261,28 @@ describe('PaginationComponent', () => {
       fixture.detectChanges();
 
       expect(getNumberButtons(fixture).length).toEqual(5);
+    });
+  });
+
+  describe('when component has showPrevPage true value', () => {
+    it('should show prev page button', () => {
+      testHostComponent.totalPages = 100;
+      testHostComponent.currentPage = 1;
+      testHostComponent.limitPages = 5;
+      fixture.detectChanges();
+
+      expect(getPrevPageButton(fixture)).toBeDefined();
+    });
+  });
+
+  describe('when component has showNextPage true value', () => {
+    it('should show next page button', () => {
+      testHostComponent.totalPages = 100;
+      testHostComponent.currentPage = 1;
+      testHostComponent.limitPages = 5;
+      fixture.detectChanges();
+
+      expect(getNextPageButton(fixture)).toBeDefined();
     });
   });
 
