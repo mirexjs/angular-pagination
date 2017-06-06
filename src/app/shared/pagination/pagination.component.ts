@@ -131,7 +131,7 @@ export class PaginationComponent {
 
     if (this.totalPages <= this.limitPages || !this.isLimitedPage) {
       start = this.firstPage;
-      end = (this.isLimitedPage) ? this.limitPages : this.totalPages;
+      end = this.totalPages;
     } else if (this.limitPages > 0) {
       if (this.currentPage <= Math.ceil(this.limitPages / 2)) {
         start = this.firstPage;

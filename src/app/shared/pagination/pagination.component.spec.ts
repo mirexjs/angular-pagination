@@ -264,6 +264,17 @@ describe('PaginationComponent', () => {
     });
   });
 
+  describe('when component has totalPages 100 value and limitPages is 5', () => {
+    it('should add class for activate button', () => {
+      testHostComponent.totalPages = 5;
+      testHostComponent.currentPage = 1;
+      testHostComponent.limitPages = 10;
+      fixture.detectChanges();
+
+      expect(getNumberButtons(fixture).length).toEqual(5);
+    });
+  });
+
   describe('when component has showPrevPage true value', () => {
     it('should show prev page button', () => {
       testHostComponent.totalPages = 100;
