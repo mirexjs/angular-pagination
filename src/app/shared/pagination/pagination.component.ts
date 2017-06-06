@@ -34,7 +34,7 @@ export class PaginationComponent {
 
   @Input() public overrideLocalCurrentPage = true;
 
-  @Output() public onChangeCurrentPage: EventEmitter<IOnChangeCurrentPage> = new EventEmitter();
+  @Output() public onChangeCurrentPage: EventEmitter<IOnChangeCurrentPage> = new EventEmitter<IOnChangeCurrentPage>();
 
   public get lastPage(): number {
     return this.totalPages;
