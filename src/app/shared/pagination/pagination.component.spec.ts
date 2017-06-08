@@ -231,14 +231,27 @@ describe('PaginationComponent', () => {
 
   describe('outputs tests', () => {
 
-    describe('when component changeCurrentPage method has been called', () => {
+    describe('when component changeCurrentPage method has been called and page isn\'t equal currentPage', () => {
       it('should be call onChangeCurrentPage output', () => {
         testHostComponent.totalPages = 5;
         testHostComponent.currentPage = 2;
         fixture.detectChanges();
 
+        mockChangeCurrentPage.calls.reset();
         component.changeCurrentPage(new Event('click'), 3);
         expect(mockChangeCurrentPage).toHaveBeenCalledWith(<IOnChangeCurrentPage>{ currentPage: 3, previousPage: 2});
+      });
+    });
+
+    describe('when component changeCurrentPage method has been called and page is equal currentPage', () => {
+      it('should be call onChangeCurrentPage output', () => {
+        testHostComponent.totalPages = 5;
+        testHostComponent.currentPage = 2;
+        fixture.detectChanges();
+
+        mockChangeCurrentPage.calls.reset();
+        component.changeCurrentPage(new Event('click'), 2);
+        expect(mockChangeCurrentPage).not.toHaveBeenCalledWith();
       });
     });
 
@@ -355,7 +368,7 @@ describe('PaginationComponent', () => {
         testHostComponent.dynamicVisibilityLastPage = false;
         fixture.detectChanges();
 
-        expect(getFirstPageButton(fixture)).toBeDefined();
+        expect(getLastPageButton(fixture)).toBeDefined();
       });
 
       it('should show last page button', () => {
@@ -366,7 +379,7 @@ describe('PaginationComponent', () => {
         testHostComponent.dynamicVisibilityLastPage = true;
         fixture.detectChanges();
 
-        expect(getFirstPageButton(fixture)).toBeDefined();
+        expect(getLastPageButton(fixture)).toBeDefined();
       });
     });
 
@@ -379,7 +392,7 @@ describe('PaginationComponent', () => {
         testHostComponent.dynamicVisibilityLastPage = false;
         fixture.detectChanges();
 
-        expect(getFirstPageButton(fixture)).toBeNull();
+        expect(getLastPageButton(fixture)).toBeNull();
       });
     });
 
