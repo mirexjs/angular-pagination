@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {IOnChangeCurrentPage} from '../models/on-change-current-page.interface';
+import {IOnChangeCurrentPage} from './models/on-change-current-page.interface';
 
 @Component({
   selector: 'ap-pagination',

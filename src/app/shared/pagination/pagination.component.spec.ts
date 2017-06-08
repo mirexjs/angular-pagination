@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaginationComponent } from './pagination.component';
 import {Component, EventEmitter} from '@angular/core';
 import {By} from '@angular/platform-browser';
-import {IOnChangeCurrentPage} from '../models/on-change-current-page.interface';
+import {IOnChangeCurrentPage} from './models/on-change-current-page.interface';
 
 @Component({
   template: `<ap-pagination 
